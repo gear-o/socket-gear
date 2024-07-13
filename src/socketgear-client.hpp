@@ -13,7 +13,7 @@ namespace socketGearClient{
         Session session;
 
         public:
-        Client(const std::string& serverIp="", const int serverPort=-1, std::string uuid="");
+        Client(const std::string& serverIp="", const int serverPort=26900, std::string uuid="");
 
         char joinChannel(std::string uuid);
 

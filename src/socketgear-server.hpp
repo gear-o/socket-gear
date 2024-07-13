@@ -34,7 +34,7 @@ namespace socketGearServer{
         // Event
         // TODO meta event instead of real events
         private:
-        void handleClient(int clientSocket);
+        void onConnection(int clientSocket);
         char onEvent();
     };
 }

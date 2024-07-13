@@ -59,17 +59,19 @@ namespace socketGearServer{
             }
 
             // Handle the connection in a separate thread
-            std::thread(&Server::handleClient, this, clientSocket).detach();
+            std::thread(&Server::onConnection, this, clientSocket).detach();
         }
     }
 
-    void Server::handleClient(int clientSocket) {
+    void Server::onConnection(int clientSocket) {
         char buffer[1024];
         while (true) {
             ssize_t bytesReceived = recv(clientSocket, buffer, sizeof(buffer) - 1, 0);
             if (bytesReceived <= 0) {
                 break; // Connection closed or error occurred
             }
+
+            // TODO describe event type to handle
 
             buffer[bytesReceived] = '\0';
             std::cout << "Received: " << buffer << std::endl;
